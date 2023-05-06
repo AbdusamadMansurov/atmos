@@ -1,0 +1,36 @@
+
+server:
+  port: 8080
+spring:
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 977515747
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    defer-datasource-initialization: false
+    properties:
+      hibernate:
+        format_sql: true
+  sql:
+    init:
+      mode: always
+  main:
+    lazy-initialization: false
+    allow-bean-definition-overriding: true
+  mvc:
+    servlet:
+      path: /api
+jwt:
+  secretKey: HRlELXqpSB
+  expireDate: 30
+debug: true
+page:
+  size: 20
