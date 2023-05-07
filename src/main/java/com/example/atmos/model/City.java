@@ -1,6 +1,6 @@
 package com.example.atmos.model;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,13 +14,13 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
-@Entity
+//@Entity
 public class City {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+//    @Column(unique = true)
     private String name;
 
     private String description;
@@ -28,6 +28,6 @@ public class City {
     @Builder.Default
     private boolean active = true;
 
-    @ManyToOne
-    private Weather weather;
+//    @ManyToOne
+//    private Weather weather;
 }

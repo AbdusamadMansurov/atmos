@@ -23,9 +23,6 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * @author * Sunnatullayev Mahmudnazar *  * market *  * 12:05 *
- */
 
 @ControllerAdvice
 public class GlobalException {

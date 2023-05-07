@@ -1,8 +1,10 @@
 package com.example.atmos.controller.authorization;
 
+import com.example.atmos.model.Users;
 import com.example.atmos.model.dto.LoginDTO;
 import com.example.atmos.model.response.ApiResponse;
 import com.example.atmos.security.JwtProvider;
+import com.example.atmos.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -24,9 +26,10 @@ import java.util.Map;
 public class AuthController {
     private final JwtProvider jwtProvider;
     private final AuthenticationManager authenticationManager;
+    private final UserService userService;
 
     @PostMapping("/login")
-    public Mono<?> login(@Valid @RequestBody LoginDTO request) {
+    public Mono<?> login( @ModelAttribute LoginDTO request) {
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
         UserDetails user = (UserDetails) authenticate.getPrincipal();
         String token = jwtProvider.generateToken(request.getUsername());
@@ -35,20 +38,10 @@ public class AuthController {
                 .data(token)
                 .message("Success authentication")
                 .build());
-//        Map<String, Object> claims = new HashMap<>();
-//        claims.put("role", user.getAuthorities().stream().toList().get(0).getAuthority());
-
-//        return ResponseEntity.ok().body(ApiResponse.builder()
-//                .success(true)
-//                .data(jwtProvider.generateToken(user, claims))
-//                .message("Success authentication")
-//                .build());
     }
-
-//    @PatchMapping("/role")
-//    public ResponseEntity<?> changeRole(@AuthenticationPrincipal User user, @RequestParam String role) {
-//        ApiResponse<?> response = authService.changeRole(user, role);
-//        return ResponseEntity.status(response.getStatus()).body(response);
-//    }
+    @PostMapping("/register")
+    public Mono<?> register(@RequestBody Users user) {
+        return userService.register(user);
+    }
 
 }

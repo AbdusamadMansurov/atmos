@@ -1,6 +1,6 @@
 package com.example.atmos.model;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -11,12 +11,11 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @Builder
-@Entity
+//@Entity
 public class Weather {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String cityName;
     private double temperature;
     private double feelsLikeTemperature;
@@ -25,4 +24,6 @@ public class Weather {
     private String description;
     private LocalDateTime timestamp;
 
+//    @ManyToOne
+    private City city;
 }

@@ -2,6 +2,10 @@
 server:
   port: 8080
 spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/postgres
+    password: 977515747
+    username: postgres
   servlet:
     multipart:
       max-file-size: 5MB
@@ -14,16 +18,16 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
-    defer-datasource-initialization: false
+      ddl-auto: update
+    defer-datasource-initialization: true
     properties:
       hibernate:
         format_sql: true
   sql:
     init:
-      mode: always
+      mode: never
   main:
-    lazy-initialization: false
+    lazy-initialization: true
     allow-bean-definition-overriding: true
   mvc:
     servlet:
@@ -32,5 +36,3 @@ jwt:
   secretKey: HRlELXqpSB
   expireDate: 30
 debug: true
-page:
-  size: 20

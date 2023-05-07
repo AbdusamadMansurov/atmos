@@ -12,13 +12,12 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements ReactiveUserDetailsService {
 
-//    private final UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Override
     public Mono<UserDetails> findByUsername(String username) {
-//        return userRepository.findByUsername(username)
-//                .map(user -> (UserDetails) user)
-//                .switchIfEmpty(Mono.error(new UsernameNotFoundException("User not found with username: " + username)));
-        return Mono.empty();
+        return userRepository.findByUsername(username)
+                .map(user -> (UserDetails) user)
+                .switchIfEmpty(Mono.error(new UsernameNotFoundException("User not found with username: " + username)));
     }
 }

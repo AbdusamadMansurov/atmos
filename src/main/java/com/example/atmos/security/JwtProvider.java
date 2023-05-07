@@ -8,16 +8,13 @@ import org.springframework.stereotype.Component;
 
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
-import java.security.Key;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
-/**
- * @author * Sunnatullayev Mahmudnazar *  * market *  * 15:51 *
- */
 
 @Component
 public class JwtProvider {
