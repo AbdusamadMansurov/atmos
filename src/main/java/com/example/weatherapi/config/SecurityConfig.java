@@ -70,7 +70,7 @@ public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
                 return configuration;
             }).and()
             .authorizeExchange()
-            .pathMatchers("/*/auth/login").permitAll()
+            .pathMatchers("/*/auth/**").permitAll()
             .anyExchange().authenticated()
             .and()
             .securityContextRepository(securityContextRepository)
