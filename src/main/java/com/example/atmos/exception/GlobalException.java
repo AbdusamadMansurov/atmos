@@ -1,7 +1,6 @@
 package com.example.atmos.exception;
 
 import com.example.atmos.model.response.ApiResponse;
-import jakarta.validation.constraints.Null;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.mapping.PropertyReferenceException;
 import org.springframework.http.HttpEntity;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
+import javax.validation.constraints.Null;
 import java.nio.file.AccessDeniedException;
 import java.sql.SQLException;
 import java.util.HashMap;

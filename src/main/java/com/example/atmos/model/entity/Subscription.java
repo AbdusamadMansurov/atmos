@@ -1,9 +1,6 @@
-package com.example.atmos.model;
+package com.example.atmos.model.entity;
 
-//import jakarta.persistence.*;
 import lombok.*;
-//import org.hibernate.annotations.CreationTimestamp;
-
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
@@ -12,20 +9,14 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @Builder
-//@Entity
 public class Subscription {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @ManyToOne
     private Users user;
 
-//    @ManyToOne
     private City city;
 
-//    @CreationTimestamp
     private LocalDateTime subscriptionTime;
 
     private boolean active = true;

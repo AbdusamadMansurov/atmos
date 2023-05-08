@@ -1,4 +1,4 @@
-package com.example.atmos.model;
+package com.example.atmos.model.entity;
 
 //import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,5 +29,5 @@ public class City {
     private boolean active = true;
 
 //    @ManyToOne
-//    private Weather weather;
+    private Weather weather;
 }

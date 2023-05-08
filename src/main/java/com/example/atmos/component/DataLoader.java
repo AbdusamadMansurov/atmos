@@ -1,6 +1,6 @@
 package com.example.atmos.component;
 
-import com.example.atmos.model.Users;
+import com.example.atmos.model.entity.Users;
 import com.example.atmos.model.enums.Role;
 import com.example.atmos.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono;
 
 @Service
 @RequiredArgsConstructor
-public class UserDetailsServiceImpl implements ReactiveUserDetailsService {
+public class UserDetailsService implements ReactiveUserDetailsService {
 
     private final UserRepository userRepository;
 
