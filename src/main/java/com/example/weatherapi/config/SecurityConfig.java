@@ -28,37 +28,6 @@ public class SecurityConfig {
         this.securityContextRepository = securityContextRepository;
     }
 
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
-
-//    @Bean
-//    public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity httpSecurity) {
-//        return httpSecurity
-//                .exceptionHandling()
-//                .authenticationEntryPoint(
-//                        (swe, e) ->
-//                                Mono.fromRunnable(
-//                                        () -> swe.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED)
-//                                )
-//                )
-//                .accessDeniedHandler(
-//                        (swe, e) ->
-//                                Mono.fromRunnable(
-//                                        () -> swe.getResponse().setStatusCode(HttpStatus.FORBIDDEN)
-//                                )
-//                )
-//                .and()
-//                .csrf().disable()
-//                .authenticationManager(authenticationManager)
-//                .securityContextRepository(securityContextRepository)
-//                .authorizeExchange()
-//                .pathMatchers("/*/auth/**").permitAll()
-//                .anyExchange().authenticated()
-//                .and()
-//                .build();
-//    }
 @Bean
 public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
   return   http.cors().configurationSource(request -> {
