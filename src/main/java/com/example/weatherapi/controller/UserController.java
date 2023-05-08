@@ -4,6 +4,7 @@ package com.example.weatherapi.controller;
 import com.example.weatherapi.model.entity.Users;
 import com.example.weatherapi.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -11,7 +12,8 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
-public class UserControllerImpl {
+@PreAuthorize("hasRole('ADMIN')")
+public class UserController {
 
     private final UserService userService;
 
@@ -19,7 +21,6 @@ public class UserControllerImpl {
     public Flux<Users> getAll() {
         return userService.getAll();
     }
-
     //    @Override
     @GetMapping("/{id}")
     public Mono<Users> getOne(@PathVariable Long id) {

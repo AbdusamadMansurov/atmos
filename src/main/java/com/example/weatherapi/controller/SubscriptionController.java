@@ -4,6 +4,7 @@ import com.example.weatherapi.model.entity.Subscription;
 import com.example.weatherapi.model.entity.Users;
 import com.example.weatherapi.service.SubscriptionService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -15,7 +16,7 @@ import reactor.core.publisher.Mono;
 public class SubscriptionController {
 
     private final SubscriptionService subscriptionService;
-
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public Flux<Subscription> getAll(){
         return subscriptionService.getAll();
