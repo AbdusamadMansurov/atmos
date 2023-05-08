@@ -13,7 +13,6 @@ public interface UserRepository extends ReactiveCrudRepository<Users, Long> {
 
     Mono<Users> findByUsername(String username);
 
-    Flux<Users> findAllByUsername(String username);
     Mono<Boolean> findByUsernameAndIdNot(String username, Long id);
     Mono<Boolean> existsByUsername(String username);
 //    Mono<Optional<User>> findByUsername(String username);

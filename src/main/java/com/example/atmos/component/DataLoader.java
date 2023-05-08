@@ -24,9 +24,6 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) {
         if (mode.equals("always")) {
-            Set<Role> roles = new HashSet<>();
-            roles.add(Role.ADMIN);
-
             Users user = Users.builder()
                     .username("virus")
                     .fullName("Abdusamad Mansurov")
